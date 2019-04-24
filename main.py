@@ -53,6 +53,13 @@ def print_menu(product_list):
     print()
 
 
+def print_commands():
+    print("")
+
+def take_command(command):
+
+
+
     
 
 
@@ -62,6 +69,9 @@ def main():
 
     products = build_products(product_file)
     print_menu(products)
+
+
+
 
 
 
