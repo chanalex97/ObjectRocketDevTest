@@ -22,9 +22,11 @@ class Cart(object):
 
             for product in self.cart:
                 print("|", str(product.code), str(product.name),
-                        "$"+str(product.price), "|", sep="\t")
+                        "$"+str(product.price), "\t|", sep="\t")
 
-            print("+   ", "---", "---", "---", "+", sep="\t")
+            print("+   ", "---", "---", "---", "\t+", sep="\t")
+        else:
+            print("Cart Empty")
         
             
     

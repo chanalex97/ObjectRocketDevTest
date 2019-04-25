@@ -148,15 +148,14 @@ def main():
             print("Product Added!\n")
             cart.is_empty(False)
             #take another command
-            take_command()
-
+            user_choice = take_command()
         #View Cart
         elif user_choice == 2:
             #view cart
-            pass
-            
+            cart.view_cart()
+
             #take another command
-            take_command()
+            user_choice = take_command()
         #Checkout
         elif user_choice == 3:
             #checkout
