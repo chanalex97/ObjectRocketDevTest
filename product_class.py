@@ -9,8 +9,9 @@ class Product(object):
     def __init__(self,code, name, price):
         self.code = code
         self.name = name
-        self.price = price
-        self.discount_price = 0
+        self.price = float(price)
+        self.discount = {}
+
 
     #return string method that shows the attributes for the object
     def __str__(self):
@@ -18,4 +19,4 @@ class Product(object):
         #     return str(self.product_code) + "\t\t\t\t\t" + str(self.discount) + str(self.price)
         # if self.discount_price == 0:
         #     return str(self.product_code) + "\t\t\t\t\t" + str(self.discount) + str(self.price)
-        return "Product code: " + str(self.product_code) + "\nName: " + str(self.name) + "\nPrice: " + str(self.price)
+        return "Product code: " + str(self.code) + "\nName: " + str(self.name) + "\nPrice: " + str(self.price)

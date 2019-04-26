@@ -1,6 +1,7 @@
 #import dependencies
 from product_class import Product
 from cart_class import Cart
+from promotions_class import Promotions
 
 #INPUT: A file with products (comma delimited)
     #ex - CH1,Chai,3.11
@@ -77,7 +78,7 @@ def take_command():
     #call the print_commands functions to show the commands options
     print_commands()
     #ask user for choice
-    choice = input("\nEnter your choice (1, 2,or 3): ")
+    choice = input("\nEnter your choice (1, 2, or 3): ")
     #validate that it is a correct choice
     #if not, continue prompting until a correct choice is entered
     while choice not in ["1", "2", "3"]:
@@ -140,6 +141,7 @@ def main():
     #flag that continues the program until the user requests to stop
     interaction_flag = 99
 
+    promos = Promotions()
 
     while interaction_flag != -1:
         #Add item to cart
@@ -151,6 +153,7 @@ def main():
             user_choice = take_command()
         #View Cart
         elif user_choice == 2:
+            promos.is_bogo(cart)
             #view cart
             cart.view_cart()
 

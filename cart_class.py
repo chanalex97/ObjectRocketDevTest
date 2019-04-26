@@ -17,12 +17,17 @@ class Cart(object):
     
     def view_cart(self):
         if len(self.cart) != 0:
-            print("+   ", "", "", "", "", "+", sep="\t")
-            print("|", "CURRENT CART", "", "", "|", sep="\t")
-
+            print("+   ", "", "", "", "", "", "+", sep="\t")
+            print("|", "CURRENT CART", "", "", "", "|", sep="\t")
+            print("+   ", "---", "---", "---", "---", "\t+", sep="\t")
             for product in self.cart:
-                print("|", str(product.code), str(product.name),
+                print("|", str(product.code), str(product.name), "",
                         "$"+str(product.price), "\t|", sep="\t")
+                if len(product.discount.keys()) != 0:
+                    for promo, disc_value in product.discount.items():
+                        print("|","","",promo,str(disc_value), sep = "\t")
+                print()
+
 
             print("+   ", "---", "---", "---", "\t+", sep="\t")
         else:
