@@ -29,11 +29,9 @@ class Promotions(object):
         #iterate through the cart object (object that holds other product objects)
         for product in current_order.cart:
             #if the product name is coffee, add it to the list, else pass
-            if product.code == "CF1" and free_coffee:
-                #make sure the product doesn't have the discount applied yet
-                #if it does, we skip it
-                if product.discount.get('BOGO') == None:
-                    product.discount['BOGO'] = product.price * -1
+            #and make sure the product doesn't have the discount applied yet
+            if (product.code == "CF1") and free_coffee and (product.discount.get('BOGO') == None):
+                product.discount['BOGO'] = product.price * -1
                 #reset the flag since we've applied the discount
                 free_coffee = False
             #mark the next coffee as eligible
@@ -60,10 +58,7 @@ class Promotions(object):
     #OUTPUT: NONE - discounts are applied to the qualifying products
     def is_chmk(self, current_order):
         #if the discount has already been used, exit the function
-        if self.is_chmk_used:
-            pass
-        #apply the function
-        else:
+        if not self.is_chmk_used:
             #list to hold product codes
             product_codes = []
             #collect all the product codes and save in product_codes
@@ -73,23 +68,19 @@ class Promotions(object):
             #look for a milk to apply the discount to
             if ("CH1" in product_codes) and ("MK1" in product_codes):
                 for product in current_order.cart:
-                    if product.code == "MK1":
-                        # double check that the milk doesn't already have the discount applied
-                        if product.discount.get('CHMK') == None:
-                            product.discount['CHMK'] = product.price * -1
-                            #set the discount as used
-                            self.is_chmk_used = True
-                            #exit out of the loop
-                            break
+                    # double check that the milk doesn't already have the discount applied
+                    if (product.code == "MK1") and (product.discount.get('CHMK') == None):
+                        product.discount['CHMK'] = product.price * -1
+                        #set the discount as used
+                        self.is_chmk_used = True
+                        #exit out of the loop
+                        break
             
     #INPUT: Cart object
     #OUTPUT: NONE - discounts are applied to the qualifying products
     def is_apom(self, current_order):
         #if the discount has already been used, exit the function
-        if self.is_apom_used:
-            pass
-        #apply the function
-        else:
+        if not self.is_apom_used:
             #list to hold product codes
             product_codes = []
             #collect all the product codes and save in product_codes
@@ -99,12 +90,11 @@ class Promotions(object):
             #look for a bag of apples to apply the discount to
             if ("AP1" in product_codes) and ("OM1" in product_codes):
                 for product in current_order.cart:
-                    if product.code == "AP1":
+                    if product.code == "AP1" and product.discount.get('APOM') == None:
                         # double check that the bag doesn't already have the discount applied
-                        if product.discount.get('APOM') == None:
-                            product.discount['APOM'] = product.price * -0.50
-                            #set the discount as used
-                            self.is_apom_used = True
-                            #exit out of the loop
-                            break
+                        product.discount['APOM'] = product.price * -0.50
+                        #set the discount as used
+                        self.is_apom_used = True
+                        #exit out of the loop
+                        break
 

@@ -4,11 +4,9 @@
 class Cart(object):
     def __init__(self):
         self.cart = []
+        #used to denote when the cart is empty
         self.empty = True
     
-    #used to denote when the cart is empty
-    def is_empty(self, state):
-        self.empty = state
 
     #code that can be used for if user wants to create a second shopping session
     # def reset_cart(self):
@@ -17,6 +15,8 @@ class Cart(object):
     #add the item to cart
     def add_to_cart(self, product):
         self.cart.append(product)
+        if self.empty == True:
+            self.empty = False
     
     def view_cart(self):
         if not self.empty:
@@ -49,7 +49,7 @@ class Cart(object):
             for product in self.cart:
                 total += product.price + product.greatest_discount_price
 
-            print("|   ", "TOTAL:", "", "", "", format(
+            print("|   ", "TOTAL:", "", "", "", "$"+format(
                 total, ".2f"), "\t|", sep="\t")
             print("+   ", "---", "---", "---", "", "---", "\t+", sep="\t")
             print()
@@ -88,7 +88,7 @@ class Cart(object):
             for product in self.cart:
                 total += product.price + product.greatest_discount_price
 
-            print("|   ", "TOTAL:", "", "", "", format(total,".2f"), "\t|", sep="\t")
+            print("|   ", "TOTAL:", "", "", "", "$"+format(total,".2f"), "\t|", sep="\t")
             print("+   ", "---", "---", "---", "", "---", "\t+", sep="\t")
             print()
         else:

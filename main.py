@@ -26,12 +26,8 @@ def build_products(in_file):
                 if len(product_details) == 3:
                     prod_code = product_details[0]
                     prod_name = product_details[1]
-                    prod_price = product_details[2]
-                    prod_price = float(prod_price)
-                    product_list.append(Product(prod_code, \
-                                                prod_name, \
-                                                prod_price))
-                    #print("Item Created: " + str(prod_code))
+                    prod_price = float(product_details[2])
+                    product_list.append(Product(prod_code, prod_name, prod_price))
                 
                 #read in the next line from the file
                 product = in_file.readline()
@@ -152,8 +148,7 @@ def main():
             #request user to enter item, and if valid, add to cart
             cart.add_to_cart(request_item_for_cart(products))
             print("Product Added!\n")
-            #change the state of the cart object to NOT empty
-            cart.is_empty(False)
+
             #take another command
             user_choice = take_command()
         #View Cart
