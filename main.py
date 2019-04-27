@@ -26,7 +26,8 @@ def build_products(in_file):
                 if len(product_details) == 3:
                     prod_code = product_details[0]
                     prod_name = product_details[1]
-                    prod_price = format(float(product_details[2]),".2f")
+                    prod_price = product_details[2]
+                    prod_price = float(prod_price)
                     product_list.append(Product(prod_code, \
                                                 prod_name, \
                                                 prod_price))
@@ -54,7 +55,7 @@ def print_menu(product_list):
     
     #iterate through the list of product objects
     for product in product_list:
-        print("|",str(product.code),str(product.name),"$"+str(product.price),"|", sep = "\t")
+        print("|",str(product.code),str(product.name),"$"+format((product.price),'.2f'),"|", sep = "\t")
     print("+   ", "---", "---", "---", "+", sep="\t")
     print()
 

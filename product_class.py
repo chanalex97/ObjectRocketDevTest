@@ -9,8 +9,9 @@ class Product(object):
     def __init__(self,code, name, price):
         self.code = code
         self.name = name
-        self.price = float(price)
+        self.price = price
         self.discount = {}
+        self.greatest_discount_price = 0
 
 
     #return string method that shows the attributes for the object
