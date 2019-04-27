@@ -10,9 +10,11 @@ class Cart(object):
     def is_empty(self, state):
         self.empty = state
 
-    def reset_cart(self):
-        self.cart = []
+    #code that can be used for if user wants to create a second shopping session
+    # def reset_cart(self):
+    #     self.cart = []
 
+    #add the item to cart
     def add_to_cart(self, product):
         self.cart.append(product)
     

@@ -13,11 +13,11 @@ class Promotions(object):
 
 
     #reset the flags when a new cart is created
-    def reset_promotions(self):
-        self.is_bogo_used = False
-        self.is_appl_used = False
-        self.is_chmk_used = False
-        self.is_apom_used = False
+    # def reset_promotions(self):
+    #     self.is_bogo_used = False
+    #     self.is_appl_used = False
+    #     self.is_chmk_used = False
+    #     self.is_apom_used = False
 
 
 

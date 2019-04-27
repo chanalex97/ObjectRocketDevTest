@@ -177,15 +177,5 @@ def main():
             print("Thanks for shopping with us!")
 
 
-
-
-
-
-
-
-
-
-
-
 if __name__ == '__main__':
   main()
