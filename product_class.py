@@ -11,10 +11,30 @@ class Product(object):
         self.name = name
         self.price = price
         self.discount = {}
+        self.best_discount = {}
         self.greatest_discount_price = 0
 
+    #in the event that the product might be eligible for more than 1 discount
+    #find the highest discount value, and use that for checkout
+    def set_greatest_discount(self):
+        #see if the item has any discounts saved
+        if len(self.discount.keys()) != 0:
+            #iterate through all the discounts it has
+            for discount, value in self.discount.items():
+                #it's important to note that default is discount is 0
+                #discounts are saved as negative numbers, and 0 is greater than any neg number
+                if self.greatest_discount_price > value:
+                    #set the new greatest discount price
+                    self.greatest_discount_price = value
+                    #clear the best_discount dictionary of any previous discounts
+                    self.best_discount.clear()
+                    #save the new "best" discount
+                    self.best_discount[discount] = value
 
-    #return string method that shows the attributes for the object
+        
+
+
+    #return string method that shows the attributes for the object, mainly used for debugging purposes
     def __str__(self):
         # if self.discount_price == 0 and self.discount_name == "":
         #     return str(self.product_code) + "\t\t\t\t\t" + str(self.discount) + str(self.price)

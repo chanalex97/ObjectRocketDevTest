@@ -142,19 +142,27 @@ def main():
     #flag that continues the program until the user requests to stop
     interaction_flag = 99
 
+    #create a promotions object
     promos = Promotions()
 
+    #continue program until checkout occurs
     while interaction_flag != -1:
         #Add item to cart
         if user_choice == 1:
+            #request user to enter item, and if valid, add to cart
             cart.add_to_cart(request_item_for_cart(products))
             print("Product Added!\n")
+            #change the state of the cart object to NOT empty
             cart.is_empty(False)
             #take another command
             user_choice = take_command()
         #View Cart
         elif user_choice == 2:
+            #run all the items in the cart though each of the promotions
             promos.is_bogo(cart)
+            promos.is_appl(cart)
+            promos.is_chmk(cart)
+            promos.is_apom(cart)
             #view cart
             cart.view_cart()
 
@@ -162,8 +170,11 @@ def main():
             user_choice = take_command()
         #Checkout
         elif user_choice == 3:
-            #checkout
-            pass
+            #call checkout function
+            cart.checkout()
+            #change flag to end program
+            interaction_flag = -1
+            print("Thanks for shopping with us!")
 
 
 
