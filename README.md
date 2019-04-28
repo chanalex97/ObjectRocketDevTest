@@ -7,14 +7,17 @@ This is a simple farmer's market app designed to allow the user to:
     3. Checkout
 
 Input:
+
+Text file ("product_input.txt") with the format:
+
+    CODE , NAME , PRICE
 ```
-{
     1. CH1,Chai,3.11
     2. AP1,Apples,6.00
     3. CF1,Coffee,11.23
     4. MK1,Milk,4.75
     5. OM1,Oatmeal,3.69
-}
+
 ```
 
 Output:
@@ -84,28 +87,36 @@ Install the requirements
 Run the app
 `./app.py`
 
-### Test it out (Note: Not set up to actually query elastic search yet)
-Run python test script:
-`./test.py`
-(optional : substitute your own data in the `data` variable in the text.py file)
+### Test it out
 
-Command line alternative: (haven't tested, might not work)
-`curl -XPOST http://127.0.0.1:5000/recommend_nutrition -d '{"state":"blue","data":[1,2,3]}'`
-
-
-## Saved Data Structures and Files
-
-* `nutrition_map.json` simple json data that organizes health state and time of day recipes
-
-* `requirements.txt` contains the python modules you need to install
 
 ## Python Modules
-* `app.py` Run the Flask application.
+* `main.py` Run the main application with additional helper functions such as:
+    
+    1. Build_products
+    2. Print_menu
+    3. Print_commands
+    4. Take_command
+    5. Request_item_for_cart
+    6. Make_cart_item
 
-* `recommend_nutrition.py` Where the "business" logic takes place, main script to organize data processing.
+* `cart_class.py` Cart class file with business logic for:
 
-* `other_api.py` Dummy module for a call that mocks getting state information from another API.
+    1. Adding to cart
+    2. Viewing cart
+    3. Checking out
 
-* `detect_activity.py` Function that takes smart device data and runs though a series of functions to detect an activity done by a person
+* `product_class.py` Product class file with:
 
-* `update_state.py` Dummy module that should eventually take a current state and activity, and return an updated state
+    1. Product attributes (code, name, price, etc.)
+    2. Set_greatest_discount function
+        *For a given product that is eligible for multiple discounts,
+        *Apply a single discount of highest value
+
+* `promotions_class.py` Promotions class file with business logic for determining if a cart is eligible for the following promotions:
+    
+    1. BOGO
+    2. APPL
+    3. CHMK
+    4. APOM
+

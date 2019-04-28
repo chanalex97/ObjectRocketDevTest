@@ -10,17 +10,6 @@ class Promotions(object):
         self.is_chmk_used = False
         self.is_apom_used = False
 
-
-
-    #reset the flags when a new cart is created
-    # def reset_promotions(self):
-    #     self.is_bogo_used = False
-    #     self.is_appl_used = False
-    #     self.is_chmk_used = False
-    #     self.is_apom_used = False
-
-
-
     #INPUT: Cart object
     #OUTPUT: NONE - discounts are applied to the qualifying products
     def is_bogo(self,current_order):
