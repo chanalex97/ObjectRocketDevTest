@@ -1,5 +1,5 @@
 
-
+from product_class import Product
 
 class Cart(object):
     def __init__(self):
@@ -12,10 +12,12 @@ class Cart(object):
     #INPUT: Product object
     #OUTPUT: None - add product to cart
     def add_to_cart(self, product):
-        self.cart.append(product)
-        #if this is the first item in the cart, change the state of the cart to not empty
-        if self.empty == True:
-            self.empty = False
+        #make sure that whatever we're passing in is actually a product object
+        if isinstance(product, Product):
+            self.cart.append(product)
+            #if this is the first item in the cart, change the state of the cart to not empty
+            if self.empty == True:
+                self.empty = False
     
     #INPUT: None
     #OUTPUT: Display the current items in cart, their discounts, and total price
