@@ -1,4 +1,4 @@
-# ObjectRocketDevTest
+# Object Rocket Developer Test
 
 This is a simple farmer's market app designed to allow the user to:
 
@@ -10,8 +10,8 @@ Input:
 
 Text file ("product_input.txt") with the format:
 
-    CODE , NAME , PRICE
 ```
+       CODE,NAME,PRICE
     1. CH1,Chai,3.11
     2. AP1,Apples,6.00
     3. CF1,Coffee,11.23
@@ -110,6 +110,7 @@ Run the app
 
     1. Product attributes (code, name, price, etc.)
     2. Set_greatest_discount function
+    
         *For a given product that is eligible for multiple discounts,
         *Apply a single discount of highest value
 
