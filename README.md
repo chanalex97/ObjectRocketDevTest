@@ -119,4 +119,10 @@ Run the app
     2. APPL
     3. CHMK
     4. APOM
+    
 
+* `test_cases.py` File with with test cases that test the functionality of:
+    
+    1. Product class
+    2. Cart class
+    3. Promotion class
