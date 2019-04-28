@@ -16,6 +16,9 @@ class Product(object):
 
     #in the event that the product might be eligible for more than 1 discount
     #find the highest discount value, and use that for checkout
+
+    #INPUT: None
+    #OUTPUT: None - it just edit's the object's best_discount and greatest_discount price
     def set_greatest_discount(self):
         #see if the item has any discounts saved
         if len(self.discount.keys()) != 0:

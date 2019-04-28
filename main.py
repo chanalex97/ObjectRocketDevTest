@@ -24,8 +24,8 @@ def build_products(in_file):
                 #exception will be thrown if the 3rd object is not a number 
                 # ie - you can't have a string as a price
                 if len(product_details) == 3:
-                    prod_code = product_details[0]
-                    prod_name = product_details[1]
+                    prod_code = str(product_details[0])
+                    prod_name = str(product_details[1])
                     prod_price = float(product_details[2])
                     product_list.append(Product(prod_code, prod_name, prod_price))
                 
@@ -78,7 +78,7 @@ def take_command():
     choice = input("\nEnter your choice (1, 2, or 3): ")
     #validate that it is a correct choice
     #if not, continue prompting until a correct choice is entered
-    while choice not in ["1", "2", "3"]:
+    while choice not in {"1", "2", "3"}:
         choice = input("Invalid Choice. Enter your choice (1, 2,or 3): ")
 
     #return the choice as an integer
@@ -113,10 +113,6 @@ def make_cart_item(code, product_list):
     for product in product_list:
         if product.code == code:
             return Product(code, product.name, product.price)
-
-
-    
-
 
 
 def main():
