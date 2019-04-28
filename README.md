@@ -121,7 +121,7 @@ Run the app
     4. APOM
     
 
-* `test_cases.py` File with with test cases that test the functionality of:
+* `test_cases.py` File with test cases that test the functionality of:
     
     1. Product class
     2. Cart class
