@@ -1,6 +1,7 @@
 # ObjectRocketDevTest
 
 This is a simple farmer's market app designed to allow the user to:
+
     1. Add items to cart
     2. View cart
     3. Checkout
@@ -8,13 +9,66 @@ This is a simple farmer's market app designed to allow the user to:
 Input:
 ```
 {
- 'state' : string OPTIONAL,  options are 'blue', 'green', 'yellow', 'red'
- 'data'  : array of ints, ex: [1,2,3,4]
+    1. CH1,Chai,3.11
+    2. AP1,Apples,6.00
+    3. CF1,Coffee,11.23
+    4. MK1,Milk,4.75
+    5. OM1,Oatmeal,3.69
 }
 ```
 
 Output:
-A recipe recommendation, ex: Red Smoothie 3, Blue Smoothie 1
+
+When viewing cart
+```
++                                                       +
+|       CURRENT CART                                    |
++                                                       +
+|       CODE    NAME    DISCOUNT        PRICE           |
++       ---     ---     ---             ---             +
+|       AP1     Apples                  $6.00           |
+|                       APPL            -1.50           |
+|                                                       |
+|       AP1     Apples                  $6.00           |
+|                       APPL            -1.50           |
+|                                                       |
+|       AP1     Apples                  $6.00           |
+|                       APPL            -1.50           |
+|                                                       |
+|       MK1     Milk                    $4.75           |
+|                                                       |
++       ---     ---     ---             ---             +
+|       TOTAL:                          $18.25          |
++       ---     ---     ---             ---             +
+```
+
+When checking out
+```
+
++                                                       +
+|       SALES RECEIPT                                   |
++                                                       +
+|       CODE    NAME    DISCOUNT        PRICE           |
++       ---     ---     ---             ---             +
+|       AP1     Apples                  $6.00           |
+|                       APPL            -1.50           |
+|                                                       |
+|       AP1     Apples                  $6.00           |
+|                       APPL            -1.50           |
+|                                                       |
+|       AP1     Apples                  $6.00           |
+|                       APPL            -1.50           |
+|                                                       |
+|       MK1     Milk                    $4.75           |
+|                                                       |
++       ---     ---     ---             ---             +
+|       TOTAL:                          $18.25          |
++       ---     ---     ---             ---             +
+
+Thanks for shopping with us!
+```
+
+
 
 ## Instructions to set up the demo
 
