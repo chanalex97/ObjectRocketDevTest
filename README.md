@@ -73,21 +73,22 @@ Thanks for shopping with us!
 
 
 
-## Instructions to set up the demo
+## Instructions to run the  in a container using Docker
 
-Download python 3.x from https://www.python.org/downloads/
+    In your command prompt/terminal,
 
-Create and activate a virtual environment
-```
-python3 -m venv /path/to/new/virtual/environment
-source /path/to/new/virtual/environment/bin/activate
-```
-Install the requirements
-`pip install -r requirements.txt`
-Run the app
-`./app.py`
+    1. Clone the repo 
+    ```
+    git clone https://github.com/chanalex97/ObjectRocketDevTest.git
+    ```
+    2. Build the docker image (note the period (".") after "instance")
+    ```
+    cd ObjectRocketDevTest
+    docker build run -it --rm instance .
+    ```
+## Test it out!
 
-### Test it out
+
 
 
 ## Python Modules
