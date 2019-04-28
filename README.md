@@ -111,9 +111,7 @@ Run the app
     1. Product attributes (code, name, price, etc.)
     2. Set_greatest_discount function
     
-        *For a given product that is eligible for multiple discounts,
-        
-        *Apply a single discount of highest value
+        *For a given product that is eligible for multiple discounts, apply a single discount of highest value
 
 * `promotions_class.py` Promotions class file with business logic for determining if a cart is eligible for the following promotions:
     
