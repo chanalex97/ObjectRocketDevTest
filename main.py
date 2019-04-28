@@ -24,9 +24,9 @@ def build_products(in_file):
                 #exception will be thrown if the 3rd object is not a number 
                 # ie - you can't have a string as a price
                 if len(product_details) == 3:
-                    prod_code = str(product_details[0])
-                    prod_name = str(product_details[1])
-                    prod_price = float(product_details[2])
+                    prod_code = product_details[0]
+                    prod_name = product_details[1]
+                    prod_price = product_details[2]
                     product_list.append(Product(prod_code, prod_name, prod_price))
                 
                 #read in the next line from the file

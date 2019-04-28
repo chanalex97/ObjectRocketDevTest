@@ -7,9 +7,9 @@
 #   3. Price
 class Product(object):
     def __init__(self,code, name, price):
-        self.code = code
-        self.name = name
-        self.price = price
+        self.code = str(code)
+        self.name = str(name)
+        self.price = float(price)
         self.discount = {}
         self.best_discount = {}
         self.greatest_discount_price = 0

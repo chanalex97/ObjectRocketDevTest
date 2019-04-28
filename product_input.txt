@@ -3,3 +3,5 @@ AP1,Apples,6.00
 CF1,Coffee,11.23
 MK1,Milk,4.75
 OM1,Oatmeal,3.69
+111,Chai,3.11
+CH2,111,3.11
