@@ -73,18 +73,19 @@ Thanks for shopping with us!
 
 
 
-## Instructions to run the application in a container using Docker
+# Instructions to run the application in a container using Docker
 
-    In your command prompt/terminal,
+In your command prompt/terminal,
 
-    1. Clone the repo 
-
-    git clone https://github.com/chanalex97/ObjectRocketDevTest.git
-
-    2. Build the docker image (note the period (".") after "instance")
-
-    cd ObjectRocketDevTest
-    docker build run -it --rm instance .
+1. Clone the repo 
+```
+git clone https://github.com/chanalex97/ObjectRocketDevTest.git
+```
+2. Build the docker image (note the period (".") after "instance")
+```
+cd ObjectRocketDevTest
+docker build run -it --rm instance .
+```
 
 
 ## Test it out!
