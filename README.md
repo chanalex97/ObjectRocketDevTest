@@ -84,13 +84,13 @@ git clone https://github.com/chanalex97/ObjectRocketDevTest.git
 2. Build the docker image (note the period (".") after "instance")
 ```
 cd ObjectRocketDevTest
-docker build run -it --rm instance .
+docker build -t instance .
 ```
-
-
-## Test it out!
-
-
+3. Run the container
+```
+docker run -it --rm instance
+```
+4. Test out the program!
 
 
 ## Python Modules
