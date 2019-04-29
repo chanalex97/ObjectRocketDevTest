@@ -91,6 +91,8 @@ def request_item_for_cart(product_list):
     #collect a list of product codes
     prod_code_list = [product.code for product in product_list]
 
+    #print the menu again
+    print_menu(product_list)
     #ask for user input
     product_code = input("Enter your desired product code: ")
     #convert input letters to uppercase
