@@ -85,7 +85,7 @@ class promotion_class_tests(TestCase):
         self.assertIsInstance(coffee3, Product)
         self.assertIsInstance(coffee4, Product)
 
-        #cart object instantiaion
+        #cart object instantiation
         cart = Cart()
         self.assertIsInstance(cart, Cart)
 
@@ -135,7 +135,7 @@ class promotion_class_tests(TestCase):
         self.assertIsInstance(apple4, Product)
         self.assertIsInstance(oatmeal1, Product)
 
-        #cart object instantiaion
+        #cart object instantiation
         cart = Cart()
         self.assertIsInstance(cart, Cart)
 
@@ -206,7 +206,7 @@ class promotion_class_tests(TestCase):
         self.assertIsInstance(milk1, Product)
         self.assertIsInstance(milk2, Product)
 
-        #cart object instantiaion
+        #cart object instantiation
         cart = Cart()
         self.assertIsInstance(cart, Cart)
 
@@ -232,6 +232,131 @@ class promotion_class_tests(TestCase):
         self.assertEqual(milk2.discount.get('CHMK'), None)
         self.assertEqual(chai1.discount.get('CHMK'), None)
         self.assertEqual(chai2.discount.get('CHMK'), None)
+
+
+##################
+# CHECKOUT TESTS #
+##################
+class checkout_tests(TestCase):
+    def test_ch_ap_cf_mk(self):
+        apple = Product("AP1", "Apples", 6.00)
+        coffee = Product("CF1", "Coffee", 11.23)
+        chai = Product("CH1", "Chai", 3.11)
+        milk = Product("MK1", "Milk", 4.75)
+
+        self.assertIsInstance(apple, Product)
+        self.assertIsInstance(coffee, Product)
+        self.assertIsInstance(chai, Product)
+        self.assertIsInstance(milk, Product)
+
+        #cart object instantiation
+        cart = Cart()
+        self.assertIsInstance(cart, Cart)
+
+        #add items to the cart
+        cart.add_to_cart(apple)
+        cart.add_to_cart(chai)
+        cart.add_to_cart(coffee)
+        cart.add_to_cart(milk)
+
+        #promotions
+        promos = Promotions()
+        #apply the promotion rules to the cart
+        promos.is_bogo(cart)
+        promos.is_appl(cart)
+        promos.is_chmk(cart)
+        promos.is_apom(cart)
+
+        cart.checkout()
+        self.assertEqual(cart.total, 20.34)
+
+
+    def test_ap_mk(self):
+        apple = Product("AP1", "Apples", 6.00)
+        milk = Product("MK1", "Milk", 4.75)
+
+        self.assertIsInstance(apple, Product)
+        self.assertIsInstance(milk, Product)
+
+        #cart object instantiation
+        cart = Cart()
+        self.assertIsInstance(cart, Cart)
+
+        #add items to the cart
+        cart.add_to_cart(apple)
+        cart.add_to_cart(milk)
+
+        #promotions
+        promos = Promotions()
+        #apply the promotion rules to the cart
+        promos.is_bogo(cart)
+        promos.is_appl(cart)
+        promos.is_chmk(cart)
+        promos.is_apom(cart)
+
+        cart.checkout()
+        self.assertEqual(cart.total, 10.75)
+
+
+    def test_cf_cf(self):
+        coffee1 = Product("CF1", "Coffee", 11.23)
+        coffee2 = Product("CF1", "Coffee", 11.23)
+
+        self.assertIsInstance(coffee1, Product)
+        self.assertIsInstance(coffee2, Product)
+
+
+        #cart object instantiation
+        cart = Cart()
+        self.assertIsInstance(cart, Cart)
+
+        #add items to the cart
+        cart.add_to_cart(coffee1)
+        cart.add_to_cart(coffee2)
+
+
+        #promotions
+        promos = Promotions()
+        #apply the promotion rules to the cart
+        promos.is_bogo(cart)
+        promos.is_appl(cart)
+        promos.is_chmk(cart)
+        promos.is_apom(cart)
+
+        cart.checkout()
+        self.assertEqual(cart.total, 11.23)
+
+    def test_ap_ap_ch_ap(self):
+        apple1 = Product("AP1", "Apples", 6.00)
+        apple2 = Product("AP1", "Apples", 6.00)
+        chai = Product("CH1", "Chai", 3.11)
+        apple3 = Product("AP1", "Apples", 6.00)
+
+        self.assertIsInstance(apple1, Product)
+        self.assertIsInstance(apple2, Product)
+        self.assertIsInstance(chai, Product)
+        self.assertIsInstance(apple3, Product)
+
+        #cart object instantiation
+        cart = Cart()
+        self.assertIsInstance(cart, Cart)
+
+        #add items to the cart
+        cart.add_to_cart(apple1)
+        cart.add_to_cart(apple2)
+        cart.add_to_cart(chai)
+        cart.add_to_cart(apple3)
+
+        #promotions
+        promos = Promotions()
+        #apply the promotion rules to the cart
+        promos.is_bogo(cart)
+        promos.is_appl(cart)
+        promos.is_chmk(cart)
+        promos.is_apom(cart)
+
+        cart.checkout()
+        self.assertEqual(cart.total, 16.61)
 
 if __name__ == '__main__':
     main()
