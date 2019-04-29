@@ -71,8 +71,6 @@ When checking out
 Thanks for shopping with us!
 ```
 
-
-
 # Instructions to run the application in a container using Docker
 
 In your command prompt/terminal,
@@ -92,6 +90,11 @@ docker run -it --rm instance
 ```
 4. Test out the program!
 
+# To run Unit Tests
+```
+cd ObjectRocketDevTest
+python test_cases.py
+```
 
 ## Python Modules
 * `main.py` Run the main application with additional helper functions such as:
